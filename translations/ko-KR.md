@@ -1,23 +1,28 @@
-# Modern JavaScript Cheatsheet
+# 최신 자바스크립트 컨닝 페이퍼
 
-![Modern JavaScript cheatsheet](https://i.imgur.com/aexPxMb.png)
+![최신 자바스크립트 컨닝 페이퍼](https://i.imgur.com/aexPxMb.png)
 <small>Image Credits: [Ahmad Awais ⚡️](https://github.com/ahmadawais)</small>
 
-## Introduction
+## 개요
 
-### Motivation
+### 동기
 
-This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
+이 문서는 요즘 프로젝트와 대부분의 최신 샘플 코드에서 자주 마주 칠 만한
+자바스크립를 위한 컨닝 페이퍼 입니다.
 
-This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let's say to learn React for instance) because of the JavaScript concepts used.
+이 가이드는 자바스크립트를 기초부터 가르치진 않지만, 자바스크립트 개념이 사용된 
+최신 코드 베이스 (혹은 React 를 배운다고 해봅시다)와 친숙하기 위해 노력하는 개발
+자들에게 도움을 줍니다.
 
-Besides, I will sometimes provide personal tips that may be debatable but will take care to mention that it's a personal recommendation when I do so.
+게다가, 가끔 논쟁의 여지가 있는 개인적인 팁들을 소개할 것이지만, 내가 그렇게
+사용하는 개인적인 추천이라는 것으로 조심스럽게 언급할 것 입니다.
 
-> **Note:** Most of the concepts introduced here are coming from a JavaScript language update (ES2015, often called ES6). You can find new features added by this update [here](http://es6-features.org); it's very well done.
+> **주의:** 여기서 소개하는 대부분의 개념은 자바스크립트 업데이트 (ES2015, 가끔 
+ES6 라고 함)에서 온 것입니다. 이 업데이트에 추가된 새로운 기능을 [여기](http://es6-features.org)]에서 찾을 수 있습니다; 잘 정리되어 있습니다.
 
-### Complementary Resources
+### 보충 자료들
 
-When you struggle to understand a notion, I suggest you look for answers on the following resources:
+개념을 이해하기 쉽지 않을 때, 아래 자료들에서 답을 찾아보길 제안 합니다:
 
 - [MDN (Mozilla Developer Network)](https://developer.mozilla.org/en-US/search?q=)
 - [You don't know JS (book)](https://github.com/getify/You-Dont-Know-JS)
@@ -28,9 +33,9 @@ When you struggle to understand a notion, I suggest you look for answers on the 
 - [Google](https://www.google.com/) to find specific blog and resources
 - [StackOverflow](https://stackoverflow.com/questions/tagged/javascript)
 
-## Table of Contents
+## 목차
 
-- [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
+- [최신 자바스크립트 컨닝 페이퍼](#modern-javascript-cheatsheet)
   * [Introduction](#introduction)
     + [Motivation](#motivation)
     + [Complementary resources](#complementary-resources)
