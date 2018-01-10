@@ -122,17 +122,19 @@ ES6 라고 함)에서 온 것입니다. 이 업데이트에 추가된 새로운 
     + [Scope](#-scope)
     + [Variable mutation](#-variable-mutation)
 
-## Notions
+## 개념들
 
-### Variable declaration: var, const, let
+### 변수 선언: var, const, let
 
-In JavaScript, there are three keywords available to declare a variable, and each has its differences. Those are ```var```, ```let``` and ```const```.
+자바스크립트에서는 변수를 선언할 수 있는 세 개의 키워드가 있고, 각각 다릅니다.
+이것들은 ```var```, ```let``` 그리고 ```const``` 입니다.
 
-#### Short explanation
+#### 간단한 설명
 
-Variables declared with ```const``` keyword can't be reassigned, while ```let``` and ```var``` can.
+```const``` 로 선언된 변수들은 값을 다시 할당 할 수 없습니다, 반면 ```let``` 과 ```var``` 은 가능합니다.
 
-I recommend always declaring your variables with ```const``` by default, and with ```let``` if you need to *mutate* it or reassign it later.
+기본적으로 항상 변수를 ```const``` 로 선언하고, 나중에 *변경* 하거나 재할당 필요가 있다면
+```let``` 으로 선언하길 추천 합니다.
 
 <table>
   <tr>
@@ -165,38 +167,39 @@ I recommend always declaring your variables with ```const``` by default, and wit
   </tr>
 </table>
 
-#### Sample code
+#### 예제 코드
 
 ```javascript
 const person = "Nick";
-person = "John" // Will raise an error, person can't be reassigned
+person = "John" // 에러가 발생합니다. person 에 재할당 할 수 없습니다.
 ```
 
 ```javascript
 let person = "Nick";
 person = "John";
-console.log(person) // "John", reassignment is allowed with let
+console.log(person) // "John", let 을 사용하면 재할당이 가능합니다.
 ```
 
-#### Detailed explanation
+#### 자세한 설명
 
-The [*scope*](#scope_def) of a variable roughly means "where is this variable available in the code".
+변수의 [*스코프*](#scope_def)는 대략 "이 변수를 코드의 어느 부분에서 사용할 수 있는지" 를 의미 합니다.
 
 ##### var
 
-```var``` declared variables are *function scoped*, meaning that when a variable is created in a function, everything in that function can access that variable. Besides, a *function scoped* variable created in a function can't be accessed outside this function.
+```var``` 로 선언된 변수는 *함수 스코프* 이며, 함수 안에서 변수가 생성됐다면, 함수안의 모든 부분에서
+해당 변수에 접근할 수 있습니다. 반면 함수 안에 생성된 *함수 스코프* 변수는 함수 밖에서 접근할 수 없습니다.
 
-I recommend you to picture it as if an *X scoped* variable meant that this variable was a property of X.
+*X 스코프* 변수는 이 변수가 X 의 속성이었다는 것을 의미하는 것처럼 생각해도 좋습니다.
 
 ```javascript
 function myFunction() {
   var myVar = "Nick";
-  console.log(myVar); // "Nick" - myVar is accessible inside the function
+  console.log(myVar); // "Nick" - myVar 는 함수안에서 접근이 가능 합니다.
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+console.log(myVar); // ReferenceError 발생, myVar 는 함수 밖에서 접근할 수 없습니다.
 ```
 
-Still focusing on the variable scope, here is a more subtle example:
+여전히 변수 스코프에 초점을 맞추면, 여기 더 미묘한 예제가 있습니다:
 
 ```javascript
 function myFunction() {
@@ -204,27 +207,29 @@ function myFunction() {
   if (true) {
     var myVar = "John";
     console.log(myVar); // "John"
-    // actually, myVar being function scoped, we just erased the previous myVar value "Nick" for "John"
+    // 실제로, myVar 는 함수 스코프, 방금 myVar 의 이전 값 "Nick" 을 지우고 "John" 할당했습니다.
   }
-  console.log(myVar); // "John" - see how the instructions in the if block affected this value
+  console.log(myVar); // "John" - if 블럭의 명령이 이 값에 어떻게 영향을 주는지 보세요.
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+console.log(myVar); // ReferenceError 발생, myVar 는 함수 밖에서 접근할 수 없습니다.
 ```
 
-Besides, *var* declared variables are moved to the top of the scope at execution. This is what we call [var hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting).
+게다가, *var* 로 선언된 변수는 실행될 때 스코프의 최상단으로 옮겨 짐니다.
+이것을 [var hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
+이라고 합니다.
 
-This portion of code:
+이 코드는:
 
 ```js
-console.log(myVar) // undefined -- no error raised
+console.log(myVar) // undefined -- 에러 발생하지 않음.
 var myVar = 2;
 ```
 
-is understood at execution like:
+실행시 이렇게 해석 됩니다:
 
 ```js
 var myVar;
-console.log(myVar) // undefined -- no error raised
+console.log(myVar) // undefined -- 에러 발생하지 않음.
 myVar = 2;
 ```
 
