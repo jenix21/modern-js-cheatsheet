@@ -250,7 +250,7 @@ function myFunction() {
     let myVar = "John";
     console.log(myVar); // "John"
     // 실제로, myVar 는 블록 스코프이며, 방금 새로운 myVar 를 만들었습니다.
-    // 이 변수는 블럭 밖에서 접근할 수 없고, 첫번째 생성한 myVar 와 완전히 동립
+    // 이 변수는 블럭 밖에서 접근할 수 없고, 첫번째 생성한 myVar 와 완전히 독립
     // 적입니다 !
   }
   console.log(myVar); // "Nick", if 블럭의 명령이 이 값에 영향을 주지 않습니다.
@@ -270,7 +270,7 @@ let myVar = 2;
 
 > **Note:** 기술적으로, *let* 과 *const* 변수 선언은 동일하게 hoisting 되지만, 할당은 그렇지 않습니다.
 할당되기 전에 사용할 수 없도록 만들어졌기 때문에, 보기에는 hosting 되지 않는다고 느낄수도 있지만 그렇지 않습니다.
-더 알고 싶다면 [매우 자세한 설명이 여기](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified)] 있습니다.
+더 알고 싶다면 [매우 자세한 설명이 여기](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified) 있습니다.
 
 추가로, *let* 변수는 다시 선언할 수 없습니다.
 
