@@ -235,13 +235,13 @@ myVar = 2;
 
 ##### let
 
-```var``` and ```let ``` are about the same, but ```let``` declared variables
+```var``` 와 ```let ``` 은 거의 비슷하지만, ```let``` 으로 선언한 변수는
 
-- are *block scoped*
-- are **not** accessible before they are assigned
-- can't be re-declared in the same scope
+- *블록 스코프* 입니다.
+- 할당되지 전에는 접근할 수 **없습니다**.
+- 동일한 스코프에서 다시 선언할 수 없습니다.
 
-Let's see the impact of block-scoping taking our previous example:
+이전 예제를 통해 블록 스코프로 인해 달라지는 점을 살펴 봅시다:
 
 ```javascript
 function myFunction() {
@@ -249,31 +249,34 @@ function myFunction() {
   if (true) {
     let myVar = "John";
     console.log(myVar); // "John"
-    // actually, myVar being block scoped, we just created a new variable myVar.
-    // this variable is not accessible outside this block and totally independent
-    // from the first myVar created !
+    // 실제로, myVar 는 블록 스코프이며, 방금 새로운 myVar 를 만들었습니다.
+    // 이 변수는 블럭 밖에서 접근할 수 없고, 첫번째 생성한 myVar 와 완전히 동립
+    // 적입니다 !
   }
-  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT affect this value
+  console.log(myVar); // "Nick", if 블럭의 명령이 이 값에 영향을 주지 않습니다.
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+console.log(myVar); // ReferenceError 발생, myVar 는 함수 밖에서 접근할 수 없습니다.
 ```
 
-<a name="tdz_sample"></a> Now, what it means for *let* (and *const*) variables for not being accessible before being assigned:
+<a name="tdz_sample"></a> 이제, *let* (그리고 *const*) 변수가 할당되지 전에 접근할 수 없다는 것이 무엇일까요:
 
 ```js
-console.log(myVar) // raises a ReferenceError !
+console.log(myVar) // ReferenceError 발생 !
 let myVar = 2;
 ```
 
-By contrast with *var* variables, if you try to read or write on a *let* or *const* variable before they are assigned an error will be raised. This phenomenon is often called [*Temporal dead zone*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) or *TDZ*.
+*var* 변수와 반대로, *let* 혹은 *const* 변수가 할당되지 전에 읽거나 쓰려고 하면 에러가 발생합니다.
+이 현상은 가끔  [*Temporal dead zone*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) 혹은 *TDZ* 라고 합니다.
 
-> **Note:** Technically, *let* and *const* variables declarations are being hoisted too, but not their assignation. Since they're made so that they can't be used before assignation, it intuitively feels like there is no hoisting, but there is. Find out more on this [very detailed explanation here](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified) if you want to know more.
+> **Note:** 기술적으로, *let* 과 *const* 변수 선언은 동일하게 hoisting 되지만, 할당은 그렇지 않습니다.
+할당되기 전에 사용할 수 없도록 만들어졌기 때문에, 보기에는 hosting 되지 않는다고 느낄수도 있지만 그렇지 않습니다.
+더 알고 싶다면 [매우 자세한 설명이 여기](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified)] 있습니다.
 
-In addition, you can't re-declare a *let* variable:
+추가로, *let* 변수는 다시 선언할 수 없습니다.
 
 ```js
 let myVar = 2;
-let myVar = 3; // Raises a SyntaxError
+let myVar = 3; // SyntaxError 발생
 ```
 
 ##### const
