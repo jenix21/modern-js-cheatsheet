@@ -238,7 +238,7 @@ myVar = 2;
 ```var``` 와 ```let ``` 은 거의 비슷하지만, ```let``` 으로 선언한 변수는
 
 - *블록 스코프* 입니다.
-- 할당되지 전에는 접근할 수 **없습니다**.
+- 할당되기 전에는 접근할 수 **없습니다**.
 - 동일한 스코프에서 다시 선언할 수 없습니다.
 
 이전 예제를 통해 블록 스코프로 인해 달라지는 점을 살펴 봅시다:
@@ -281,46 +281,48 @@ let myVar = 3; // SyntaxError 발생
 
 ##### const
 
+```const``` 로 선언된 변수는 *let* 변수 처럼 동작하지만, 역시 재할당 될 수 없습니다.
+
 ```const``` declared variables behave like *let* variables, but also they can't be reassigned.
 
-To sum it up, *const* variables:
+요약하면, *const* 변수는:
 
-- are *block scoped*
-- are not accessible before being assigned
-- can't be re-declared in the same scope
-- can't be reassigned
+- *블록 스코프* 입니다.
+- 할당되기 전에 사용할 수 없습니다.
+- 동일한 스코프에서 다시 선언할 수 없습니다.
+- 다시 할당할 수 없습니다.
+
 
 ```js
 const myVar = "Nick";
-myVar = "John" // raises an error, reassignment is not allowed
+myVar = "John" // 에러 발생, 재할당이 혀용되지 않습니다.
 ```
 
 ```js
 const myVar = "Nick";
-const myVar = "John" // raises an error, re-declaration is not allowed
+const myVar = "John" // 에러 발생, 재선언이 허용되지 않습니다.
 ```
+<a name="const_mutable_sample"></a> 그러나 미묘한한 부분이 있습니다 : ```const``` 변수들은  [**변경할 수 없습니다**](#mutation_def) ! 구체적으로, ```const``` 로 선언한 *객체* 와 *배열* 은 변경할 수 있습니다.
 
-<a name="const_mutable_sample"></a> But there is a subtlety : ```const``` variables are not [**immutable**](#mutation_def) ! Concretely, it means that *object* and *array* ```const``` declared variables **can** be mutated.
-
-For objects:
+객체의 예:
 ```js
 const person = {
   name: 'Nick'
 };
-person.name = 'John' // this will work ! person variable is not completely reassigned, but mutated
+person.name = 'John' // 이것은 동작합니다 ! person 변수는 재할당 할 수 없지만, 수정할 수 있습니다.
 console.log(person.name) // "John"
-person = "Sandra" // raises an error, because reassignment is not allowed with const declared variables
+person = "Sandra" // 에러 발생, const 로 선언된 변수는 재할당 할 수 없습니다.
 ```
 
-For arrays:
+배열의 예:
 ```js
 const person = [];
-person.push('John'); // this will work ! person variable is not completely reassigned, but mutated
+person.push('John'); // 이것은 동작합니다 ! person 변수는 재할당 할 수 없지만, 수정할 수 있습니다.
 console.log(person[0]) // "John"
-person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables
+person = ["Nick"] // 에러 발생, const 로 선언된 변수는 재할당 할 수 없습니다.
 ```
 
-#### External resource
+#### 외부 자료
 
 - [How let and const are scoped in JavaScript - WesBos](http://wesbos.com/javascript-scoping/)
 - [Temporal Dead Zone (TDZ) Demystified](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified)
