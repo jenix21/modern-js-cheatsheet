@@ -327,29 +327,30 @@ person = ["Nick"] // 에러 발생, const 로 선언된 변수는 재할당 할 
 - [How let and const are scoped in JavaScript - WesBos](http://wesbos.com/javascript-scoping/)
 - [Temporal Dead Zone (TDZ) Demystified](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified)
 
-### <a name="arrow_func_concept"></a> Arrow function
+### <a name="arrow_func_concept"></a> 화살표 함수
 
-The ES6 JavaScript update has introduced *arrow functions*, which is another way to declare and use functions. Here are the benefits they bring:
+ES6 자바스크립트 업데이트에서 *화살표 함수*를 소개 했는데, 함수를 선언하고 사용하는 다른 방법 입니다.
+이것을 사용 했을 때 장점들 입니다:
 
-- More concise
-- *this* is picked up from surroundings
-- implicit return
+- 더 간결함
+- *this* 가 주변환경에서 선태됨
+- 묵시적 반환
 
-#### Sample code
+#### 예제 코드
 
-- Concision and implicit return
+- 간결함과 묵시적 반환
 
 ```js
-function double(x) { return x * 2; } // Traditional way
+function double(x) { return x * 2; } // 전통적인 방법
 console.log(double(2)) // 4
 ```
 
 ```js
-const double = x => x * 2; // Same function written as an arrow function with implicit return
+const double = x => x * 2; // 묵시적 반환을 하는 화살표 함수로 작성된 동일한 함수
 console.log(double(2)) // 4
 ```
 
-- *this* reference
+- *this* 참조
 
 In an arrow function, *this* is equal to the *this* value of the enclosing execution context. Basically, with arrow functions, you don't have to do the "that = this" trick before calling a function inside a function anymore.
 
