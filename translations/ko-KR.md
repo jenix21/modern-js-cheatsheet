@@ -352,7 +352,9 @@ console.log(double(2)) // 4
 
 - *this* 참조
 
-In an arrow function, *this* is equal to the *this* value of the enclosing execution context. Basically, with arrow functions, you don't have to do the "that = this" trick before calling a function inside a function anymore.
+화살표 함수에서, *this* 는 둘러싼 실행 컨텍스트의 *this* 값과 동일 합니다.
+기본적으로 화살표 함수를 사용할 때는, 함수안에서 다른 함수를 호출 하기 전에 사용하던 "that = this" 트릭은
+더이상 필요하지 않습니다.
 
 ```js
 function myFunc() {
@@ -364,19 +366,19 @@ function myFunc() {
 }
 ```
 
-#### Detailed explanation
+#### 자세한 설명
 
-##### Concision
+##### 간결함
 
-Arrow functions are more concise than traditional functions in many ways. Let's review all the possible cases:
+화살표 함수는 여러 면에서 전통적인 함수보다 간결합니다. 모든 경우를 살표 봅시다:
 
-- Implicit VS Explicit return
+- 묵시적 반환 VS 명시적 반환
 
-An **explicit return** is a function where the *return* keyword is used in its body.
+*명시적 반환*은 함수 바디에 *return* 키워드를 사용하는 함수 입니다.
 
 ```js
   function double(x) {
-    return x * 2; // this function explicitly returns x * 2, *return* keyword is used
+    return x * 2; // 이 함수는 명시적으로 x * 2 를 반환 합니다, *return* 키워드가 사용되었습니다.
   }
 ```
 
